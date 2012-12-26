@@ -1,4 +1,4 @@
-NetPonto.W8App
+﻿NetPonto.App
 ==============
 
-Aplicação windows8 para a Comunidade NetPonto http://netponto.org
+Aplicação windows/phone para a Comunidade NetPonto http://netponto.org
