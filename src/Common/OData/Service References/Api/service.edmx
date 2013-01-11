@@ -1,0 +1,365 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="NetPontoEFModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="Localizacao">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Nome" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Sala" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="MoradaLinha1" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="MoradaLinha2" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="CodigoPostal" Type="Edm.String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+        <Property Name="Cidade" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="Pais" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="CoordenadasGps" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="UrlMapa" Type="Edm.String" Nullable="false" MaxLength="400" Unicode="true" FixedLength="false" />
+        <Property Name="ImagemMapa" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="Direccoes" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Reunioes" Relationship="NetPontoEFModel.FK_Reunioes_Localizacoes" FromRole="Localizacoes" ToRole="Reunioes" />
+      </EntityType>
+      <EntityType Name="Membro">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Nome" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="Apelido" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Telemovel" Type="Edm.String" Nullable="true" MaxLength="20" Unicode="true" FixedLength="false" />
+        <Property Name="UrlSite" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlBlog" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlTwitter" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlLinkedIn" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlFacebook" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlGooglePlus" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlGeeklist" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="Mvp" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Msft" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Slug" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="MiniCV" Type="Edm.String" Nullable="true" MaxLength="1000" Unicode="true" FixedLength="false" />
+        <Property Name="UrlGitHub" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlBitBucket" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlCodePlex" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="CriadoEm" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="AlteradoEm" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="ImagemSocial" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Sessoes" Relationship="NetPontoEFModel.FK_Sessoes_Membros" FromRole="Membros" ToRole="Sessoes" />
+        <NavigationProperty Name="Sessoes1" Relationship="NetPontoEFModel.FK_Sessoes_Membros1" FromRole="Membro" ToRole="Sessao" />
+        <NavigationProperty Name="MembroRevistaProgramar" Relationship="NetPontoEFModel.FK_RevistaProgramarMembros_Membros" FromRole="Membro" ToRole="RevistaProgramarMembro" />
+      </EntityType>
+      <EntityType Name="Reuniao">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Titulo" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Descricao" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Notas" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Data" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Slug" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="UrlRegisto" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="MostrarNoSite" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="MostrarNoFeed" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="LocalizacaoId" Type="Edm.Int32" Nullable="true" />
+        <Property Name="CriadoEm" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="AlteradoEm" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="ImagemSocial" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Localizacao" Relationship="NetPontoEFModel.FK_Reunioes_Localizacoes" FromRole="Reunioes" ToRole="Localizacoes" />
+        <NavigationProperty Name="Sessoes" Relationship="NetPontoEFModel.FK_Sessoes_Reunioes" FromRole="Reunioes" ToRole="Sessoes" />
+        <NavigationProperty Name="Patrocinadores" Relationship="NetPontoEFModel.FK_ReunioesPatrocinadores_Reunioes" FromRole="Reuniao" ToRole="ReunioesPatrocinadores" />
+      </EntityType>
+      <EntityType Name="Sessao">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Hora" Type="Edm.String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="true" />
+        <Property Name="Titulo" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Resumo" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Apresentacao" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="Slug" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="false" FixedLength="false" />
+        <Property Name="UrlSlides" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlDemos" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlVideo" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="OradorId" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Orador2Id" Type="Edm.Int32" Nullable="true" />
+        <Property Name="ReuniaoId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CriadoEm" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="AlteradoEm" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="ImagemSocial" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Orador" Relationship="NetPontoEFModel.FK_Sessoes_Membros" FromRole="Sessoes" ToRole="Membros" />
+        <NavigationProperty Name="Orador2" Relationship="NetPontoEFModel.FK_Sessoes_Membros1" FromRole="Sessao" ToRole="Membro" />
+        <NavigationProperty Name="Reuniao" Relationship="NetPontoEFModel.FK_Sessoes_Reunioes" FromRole="Sessoes" ToRole="Reunioes" />
+      </EntityType>
+      <EntityType Name="NivelPatrocinador">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Nome" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Reunioes" Relationship="NetPontoEFModel.FK_ReunioesPatrocinadores_NiveisPatrocinadores" FromRole="NiveisPatrocinadores" ToRole="ReunioesPatrocinadores" />
+      </EntityType>
+      <EntityType Name="Patrocinador">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Nome" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Url" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="LogotipoGold" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="LogotipoSilver" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="LogotipoBronze" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Reunioes" Relationship="NetPontoEFModel.FK_ReunioesPatrocinadores_Patrocinadores" FromRole="Patrocinadores" ToRole="ReunioesPatrocinadores" />
+      </EntityType>
+      <EntityType Name="ReuniaoPatrocinador">
+        <Key>
+          <PropertyRef Name="ReuniaoId" />
+          <PropertyRef Name="PatrocinadorId" />
+          <PropertyRef Name="NivelId" />
+        </Key>
+        <Property Name="ReuniaoId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PatrocinadorId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NivelId" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Nivel" Relationship="NetPontoEFModel.FK_ReunioesPatrocinadores_NiveisPatrocinadores" FromRole="ReunioesPatrocinadores" ToRole="NiveisPatrocinadores" />
+        <NavigationProperty Name="Patrocinador" Relationship="NetPontoEFModel.FK_ReunioesPatrocinadores_Patrocinadores" FromRole="ReunioesPatrocinadores" ToRole="Patrocinadores" />
+        <NavigationProperty Name="Reuniao" Relationship="NetPontoEFModel.FK_ReunioesPatrocinadores_Reunioes" FromRole="ReunioesPatrocinadores" ToRole="Reuniao" />
+      </EntityType>
+      <EntityType Name="RevistaProgramarEdicao">
+        <Key>
+          <PropertyRef Name="NumeroEdicao" />
+        </Key>
+        <Property Name="NumeroEdicao" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Mes" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Ano" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Titulo" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="UrlCapaMedia" Type="Edm.String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlCapaGrande" Type="Edm.String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlDownload" Type="Edm.String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="Slug" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Artigos" Relationship="NetPontoEFModel.FK_RevistaProgramarEdicoesArtigos_RevistaProgramarEdicoes" FromRole="RevistaProgramarEdico" ToRole="RevistaProgramarEdicoesArtigo" />
+        <NavigationProperty Name="Equipa" Relationship="NetPontoEFModel.RevistaProgramarEdicoesMembros" FromRole="RevistaProgramarEdico" ToRole="RevistaProgramarMembro" />
+      </EntityType>
+      <EntityType Name="RevistaProgramarArtigo">
+        <Key>
+          <PropertyRef Name="NumeroArtigo" />
+        </Key>
+        <Property Name="NumeroArtigo" Type="Edm.Int32" Nullable="false" />
+        <Property Name="NumeroEdicao" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Coluna" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Titulo" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Resumo" Type="Edm.String" Nullable="true" MaxLength="4000" Unicode="true" FixedLength="false" />
+        <Property Name="UrlArtigo" Type="Edm.String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="Slug" Type="Edm.String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="Ordem" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Edicao" Relationship="NetPontoEFModel.FK_RevistaProgramarEdicoesArtigos_RevistaProgramarEdicoes" FromRole="RevistaProgramarEdicoesArtigo" ToRole="RevistaProgramarEdico" />
+        <NavigationProperty Name="Autores" Relationship="NetPontoEFModel.RevistaProgramarEdicoesArtigosMembros" FromRole="RevistaProgramarEdicoesArtigo" ToRole="RevistaProgramarMembro" />
+      </EntityType>
+      <EntityType Name="RevistaProgramarMembro">
+        <Key>
+          <PropertyRef Name="NumeroMembro" />
+        </Key>
+        <Property Name="NumeroMembro" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Nome" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="UrlPerfil" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="NetPontoMembroId" Type="Edm.Int32" Nullable="true" />
+        <NavigationProperty Name="MembroNetPonto" Relationship="NetPontoEFModel.FK_RevistaProgramarMembros_Membros" FromRole="RevistaProgramarMembro" ToRole="Membro" />
+        <NavigationProperty Name="Artigos" Relationship="NetPontoEFModel.RevistaProgramarEdicoesArtigosMembros" FromRole="RevistaProgramarMembro" ToRole="RevistaProgramarEdicoesArtigo" />
+        <NavigationProperty Name="Edicoes" Relationship="NetPontoEFModel.RevistaProgramarEdicoesMembros" FromRole="RevistaProgramarMembro" ToRole="RevistaProgramarEdico" />
+      </EntityType>
+      <EntityType Name="Evento">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Titulo" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="Data" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="Cidade" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="Descricao" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Slug" Type="Edm.String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="ImagemSocial" Type="Edm.String" Nullable="true" MaxLength="150" Unicode="true" FixedLength="false" />
+        <Property Name="UrlRegisto" Type="Edm.String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+        <Property Name="MostrarNoSite" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="MostrarNoFeed" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="CriadoEm" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="AlteradoEm" Type="Edm.DateTime" Nullable="false" />
+      </EntityType>
+      <Association Name="FK_Reunioes_Localizacoes">
+        <End Role="Localizacoes" Type="NetPontoEFModel.Localizacao" Multiplicity="0..1" />
+        <End Role="Reunioes" Type="NetPontoEFModel.Reuniao" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Localizacoes">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="Reunioes">
+            <PropertyRef Name="LocalizacaoId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_Sessoes_Membros">
+        <End Role="Membros" Type="NetPontoEFModel.Membro" Multiplicity="0..1" />
+        <End Role="Sessoes" Type="NetPontoEFModel.Sessao" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Membros">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="Sessoes">
+            <PropertyRef Name="OradorId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_Sessoes_Reunioes">
+        <End Role="Reunioes" Type="NetPontoEFModel.Reuniao" Multiplicity="1" />
+        <End Role="Sessoes" Type="NetPontoEFModel.Sessao" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Reunioes">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="Sessoes">
+            <PropertyRef Name="ReuniaoId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_Sessoes_Membros1">
+        <End Role="Membro" Type="NetPontoEFModel.Membro" Multiplicity="0..1" />
+        <End Role="Sessao" Type="NetPontoEFModel.Sessao" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Membro">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="Sessao">
+            <PropertyRef Name="Orador2Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_ReunioesPatrocinadores_NiveisPatrocinadores">
+        <End Role="NiveisPatrocinadores" Type="NetPontoEFModel.NivelPatrocinador" Multiplicity="1" />
+        <End Role="ReunioesPatrocinadores" Type="NetPontoEFModel.ReuniaoPatrocinador" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="NiveisPatrocinadores">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="ReunioesPatrocinadores">
+            <PropertyRef Name="NivelId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_ReunioesPatrocinadores_Patrocinadores">
+        <End Role="Patrocinadores" Type="NetPontoEFModel.Patrocinador" Multiplicity="1" />
+        <End Role="ReunioesPatrocinadores" Type="NetPontoEFModel.ReuniaoPatrocinador" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Patrocinadores">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="ReunioesPatrocinadores">
+            <PropertyRef Name="PatrocinadorId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_ReunioesPatrocinadores_Reunioes">
+        <End Role="Reuniao" Type="NetPontoEFModel.Reuniao" Multiplicity="1" />
+        <End Role="ReunioesPatrocinadores" Type="NetPontoEFModel.ReuniaoPatrocinador" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Reuniao">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="ReunioesPatrocinadores">
+            <PropertyRef Name="ReuniaoId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_RevistaProgramarMembros_Membros">
+        <End Role="Membro" Type="NetPontoEFModel.Membro" Multiplicity="0..1" />
+        <End Role="RevistaProgramarMembro" Type="NetPontoEFModel.RevistaProgramarMembro" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Membro">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="RevistaProgramarMembro">
+            <PropertyRef Name="NetPontoMembroId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_RevistaProgramarEdicoesArtigos_RevistaProgramarEdicoes">
+        <End Role="RevistaProgramarEdico" Type="NetPontoEFModel.RevistaProgramarEdicao" Multiplicity="1" />
+        <End Role="RevistaProgramarEdicoesArtigo" Type="NetPontoEFModel.RevistaProgramarArtigo" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="RevistaProgramarEdico">
+            <PropertyRef Name="NumeroEdicao" />
+          </Principal>
+          <Dependent Role="RevistaProgramarEdicoesArtigo">
+            <PropertyRef Name="NumeroEdicao" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="RevistaProgramarEdicoesArtigosMembros">
+        <End Role="RevistaProgramarEdicoesArtigo" Type="NetPontoEFModel.RevistaProgramarArtigo" Multiplicity="*" />
+        <End Role="RevistaProgramarMembro" Type="NetPontoEFModel.RevistaProgramarMembro" Multiplicity="*" />
+      </Association>
+      <Association Name="RevistaProgramarEdicoesMembros">
+        <End Role="RevistaProgramarEdico" Type="NetPontoEFModel.RevistaProgramarEdicao" Multiplicity="*" />
+        <End Role="RevistaProgramarMembro" Type="NetPontoEFModel.RevistaProgramarMembro" Multiplicity="*" />
+      </Association>
+    </Schema>
+    <Schema Namespace="System.Data.Objects" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="NetPontoDbContext" p7:LazyLoadingEnabled="true" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="Localizacoes" EntityType="NetPontoEFModel.Localizacao" />
+        <EntitySet Name="Membros" EntityType="NetPontoEFModel.Membro" />
+        <EntitySet Name="Reunioes" EntityType="NetPontoEFModel.Reuniao" />
+        <EntitySet Name="Sessoes" EntityType="NetPontoEFModel.Sessao" />
+        <EntitySet Name="NiveisPatrocinadores" EntityType="NetPontoEFModel.NivelPatrocinador" />
+        <EntitySet Name="Patrocinadores" EntityType="NetPontoEFModel.Patrocinador" />
+        <EntitySet Name="ReunioesPatrocinadores" EntityType="NetPontoEFModel.ReuniaoPatrocinador" />
+        <EntitySet Name="RevistaProgramarEdicoes" EntityType="NetPontoEFModel.RevistaProgramarEdicao" />
+        <EntitySet Name="RevistaProgramarArtigos" EntityType="NetPontoEFModel.RevistaProgramarArtigo" />
+        <EntitySet Name="RevistaProgramarMembros" EntityType="NetPontoEFModel.RevistaProgramarMembro" />
+        <EntitySet Name="Eventos" EntityType="NetPontoEFModel.Evento" />
+        <AssociationSet Name="FK_Reunioes_Localizacoes" Association="NetPontoEFModel.FK_Reunioes_Localizacoes">
+          <End Role="Localizacoes" EntitySet="Localizacoes" />
+          <End Role="Reunioes" EntitySet="Reunioes" />
+        </AssociationSet>
+        <AssociationSet Name="FK_Sessoes_Membros" Association="NetPontoEFModel.FK_Sessoes_Membros">
+          <End Role="Membros" EntitySet="Membros" />
+          <End Role="Sessoes" EntitySet="Sessoes" />
+        </AssociationSet>
+        <AssociationSet Name="FK_Sessoes_Reunioes" Association="NetPontoEFModel.FK_Sessoes_Reunioes">
+          <End Role="Reunioes" EntitySet="Reunioes" />
+          <End Role="Sessoes" EntitySet="Sessoes" />
+        </AssociationSet>
+        <AssociationSet Name="FK_Sessoes_Membros1" Association="NetPontoEFModel.FK_Sessoes_Membros1">
+          <End Role="Membro" EntitySet="Membros" />
+          <End Role="Sessao" EntitySet="Sessoes" />
+        </AssociationSet>
+        <AssociationSet Name="FK_ReunioesPatrocinadores_NiveisPatrocinadores" Association="NetPontoEFModel.FK_ReunioesPatrocinadores_NiveisPatrocinadores">
+          <End Role="NiveisPatrocinadores" EntitySet="NiveisPatrocinadores" />
+          <End Role="ReunioesPatrocinadores" EntitySet="ReunioesPatrocinadores" />
+        </AssociationSet>
+        <AssociationSet Name="FK_ReunioesPatrocinadores_Patrocinadores" Association="NetPontoEFModel.FK_ReunioesPatrocinadores_Patrocinadores">
+          <End Role="Patrocinadores" EntitySet="Patrocinadores" />
+          <End Role="ReunioesPatrocinadores" EntitySet="ReunioesPatrocinadores" />
+        </AssociationSet>
+        <AssociationSet Name="FK_ReunioesPatrocinadores_Reunioes" Association="NetPontoEFModel.FK_ReunioesPatrocinadores_Reunioes">
+          <End Role="Reuniao" EntitySet="Reunioes" />
+          <End Role="ReunioesPatrocinadores" EntitySet="ReunioesPatrocinadores" />
+        </AssociationSet>
+        <AssociationSet Name="FK_RevistaProgramarMembros_Membros" Association="NetPontoEFModel.FK_RevistaProgramarMembros_Membros">
+          <End Role="Membro" EntitySet="Membros" />
+          <End Role="RevistaProgramarMembro" EntitySet="RevistaProgramarMembros" />
+        </AssociationSet>
+        <AssociationSet Name="FK_RevistaProgramarEdicoesArtigos_RevistaProgramarEdicoes" Association="NetPontoEFModel.FK_RevistaProgramarEdicoesArtigos_RevistaProgramarEdicoes">
+          <End Role="RevistaProgramarEdico" EntitySet="RevistaProgramarEdicoes" />
+          <End Role="RevistaProgramarEdicoesArtigo" EntitySet="RevistaProgramarArtigos" />
+        </AssociationSet>
+        <AssociationSet Name="RevistaProgramarEdicoesArtigosMembros" Association="NetPontoEFModel.RevistaProgramarEdicoesArtigosMembros">
+          <End Role="RevistaProgramarEdicoesArtigo" EntitySet="RevistaProgramarArtigos" />
+          <End Role="RevistaProgramarMembro" EntitySet="RevistaProgramarMembros" />
+        </AssociationSet>
+        <AssociationSet Name="RevistaProgramarEdicoesMembros" Association="NetPontoEFModel.RevistaProgramarEdicoesMembros">
+          <End Role="RevistaProgramarEdico" EntitySet="RevistaProgramarEdicoes" />
+          <End Role="RevistaProgramarMembro" EntitySet="RevistaProgramarMembros" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
