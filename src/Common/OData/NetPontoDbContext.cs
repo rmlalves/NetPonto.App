@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Netponto.App.Common.OData.Api
+namespace NetPonto.App.Common.OData.Api
 {
     public partial class NetPontoDbContext : INetPontoSvc
     {

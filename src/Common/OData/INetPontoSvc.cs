@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-using Netponto.App.Common.OData.Api;
+using NetPonto.App.Common.OData.Api;
 
-namespace Netponto.App.Common.OData
+namespace NetPonto.App.Common.OData
 {
     public interface INetPontoSvc
     {

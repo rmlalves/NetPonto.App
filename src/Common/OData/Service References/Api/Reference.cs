@@ -9,8 +9,8 @@
 //------------------------------------------------------------------------------
 
 // Original file name:
-// Generation date: 11/01/2013 11:54:46
-namespace Netponto.App.Common.OData.Api
+// Generation date: 14/01/2013 11:38:00
+namespace NetPonto.App.Common.OData.Api
 {
     
     /// <summary>
@@ -38,9 +38,9 @@ namespace Netponto.App.Common.OData.Api
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         protected global::System.Type ResolveTypeFromName(string typeName)
         {
-            if (typeName.StartsWith("NetPontoEFModel", global::System.StringComparison.Ordinal))
+            if (typeName.StartsWith("NetPonto.Web.Models", global::System.StringComparison.Ordinal))
             {
-                return global::System.Reflection.IntrospectionExtensions.GetTypeInfo(this.GetType()).Assembly.GetType(string.Concat("Netponto.App.Common.OData.Api", typeName.Substring(15)));
+                return global::System.Reflection.IntrospectionExtensions.GetTypeInfo(this.GetType()).Assembly.GetType(string.Concat("NetPonto.App.Common.OData.Api", typeName.Substring(19)));
             }
             return null;
         }
@@ -52,9 +52,9 @@ namespace Netponto.App.Common.OData.Api
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         protected string ResolveNameFromType(global::System.Type clientType)
         {
-            if (clientType.Namespace.Equals("Netponto.App.Common.OData.Api", global::System.StringComparison.Ordinal))
+            if (clientType.Namespace.Equals("NetPonto.App.Common.OData.Api", global::System.StringComparison.Ordinal))
             {
-                return string.Concat("NetPontoEFModel.", clientType.Name);
+                return string.Concat("NetPonto.Web.Models.", clientType.Name);
             }
             return null;
         }
@@ -335,7 +335,7 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.Localizacao in the schema.
+    /// There are no comments for NetPonto.Web.Models.Localizacao in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -348,25 +348,11 @@ namespace Netponto.App.Common.OData.Api
         /// Create a new Localizacao object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="nome">Initial value of Nome.</param>
-        /// <param name="moradaLinha1">Initial value of MoradaLinha1.</param>
-        /// <param name="codigoPostal">Initial value of CodigoPostal.</param>
-        /// <param name="cidade">Initial value of Cidade.</param>
-        /// <param name="pais">Initial value of Pais.</param>
-        /// <param name="urlMapa">Initial value of UrlMapa.</param>
-        /// <param name="imagemMapa">Initial value of ImagemMapa.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static Localizacao CreateLocalizacao(int ID, string nome, string moradaLinha1, string codigoPostal, string cidade, string pais, string urlMapa, string imagemMapa)
+        public static Localizacao CreateLocalizacao(int ID)
         {
             Localizacao localizacao = new Localizacao();
             localizacao.Id = ID;
-            localizacao.Nome = nome;
-            localizacao.MoradaLinha1 = moradaLinha1;
-            localizacao.CodigoPostal = codigoPostal;
-            localizacao.Cidade = cidade;
-            localizacao.Pais = pais;
-            localizacao.UrlMapa = urlMapa;
-            localizacao.ImagemMapa = imagemMapa;
             return localizacao;
         }
         /// <summary>
@@ -663,7 +649,7 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.Membro in the schema.
+    /// There are no comments for NetPonto.Web.Models.Membro in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -676,27 +662,15 @@ namespace Netponto.App.Common.OData.Api
         /// Create a new Membro object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="nome">Initial value of Nome.</param>
-        /// <param name="apelido">Initial value of Apelido.</param>
-        /// <param name="email">Initial value of Email.</param>
         /// <param name="mvp">Initial value of Mvp.</param>
         /// <param name="msft">Initial value of Msft.</param>
-        /// <param name="slug">Initial value of Slug.</param>
-        /// <param name="criadoEm">Initial value of CriadoEm.</param>
-        /// <param name="alteradoEm">Initial value of AlteradoEm.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static Membro CreateMembro(int ID, string nome, string apelido, string email, bool mvp, bool msft, string slug, global::System.DateTime criadoEm, global::System.DateTime alteradoEm)
+        public static Membro CreateMembro(int ID, bool mvp, bool msft)
         {
             Membro membro = new Membro();
             membro.Id = ID;
-            membro.Nome = nome;
-            membro.Apelido = apelido;
-            membro.Email = email;
             membro.Mvp = mvp;
             membro.Msft = msft;
-            membro.Slug = slug;
-            membro.CriadoEm = criadoEm;
-            membro.AlteradoEm = alteradoEm;
             return membro;
         }
         /// <summary>
@@ -765,50 +739,6 @@ namespace Netponto.App.Common.OData.Api
         private string _Apelido;
         partial void OnApelidoChanging(string value);
         partial void OnApelidoChanged();
-        /// <summary>
-        /// There are no comments for Property Email in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public string Email
-        {
-            get
-            {
-                return this._Email;
-            }
-            set
-            {
-                this.OnEmailChanging(value);
-                this._Email = value;
-                this.OnEmailChanged();
-                this.OnPropertyChanged("Email");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private string _Email;
-        partial void OnEmailChanging(string value);
-        partial void OnEmailChanged();
-        /// <summary>
-        /// There are no comments for Property Telemovel in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public string Telemovel
-        {
-            get
-            {
-                return this._Telemovel;
-            }
-            set
-            {
-                this.OnTelemovelChanging(value);
-                this._Telemovel = value;
-                this.OnTelemovelChanged();
-                this.OnPropertyChanged("Telemovel");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private string _Telemovel;
-        partial void OnTelemovelChanging(string value);
-        partial void OnTelemovelChanged();
         /// <summary>
         /// There are no comments for Property UrlSite in the schema.
         /// </summary>
@@ -1118,50 +1048,6 @@ namespace Netponto.App.Common.OData.Api
         partial void OnUrlCodePlexChanging(string value);
         partial void OnUrlCodePlexChanged();
         /// <summary>
-        /// There are no comments for Property CriadoEm in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.DateTime CriadoEm
-        {
-            get
-            {
-                return this._CriadoEm;
-            }
-            set
-            {
-                this.OnCriadoEmChanging(value);
-                this._CriadoEm = value;
-                this.OnCriadoEmChanged();
-                this.OnPropertyChanged("CriadoEm");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.DateTime _CriadoEm;
-        partial void OnCriadoEmChanging(global::System.DateTime value);
-        partial void OnCriadoEmChanged();
-        /// <summary>
-        /// There are no comments for Property AlteradoEm in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.DateTime AlteradoEm
-        {
-            get
-            {
-                return this._AlteradoEm;
-            }
-            set
-            {
-                this.OnAlteradoEmChanging(value);
-                this._AlteradoEm = value;
-                this.OnAlteradoEmChanged();
-                this.OnPropertyChanged("AlteradoEm");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.DateTime _AlteradoEm;
-        partial void OnAlteradoEmChanging(global::System.DateTime value);
-        partial void OnAlteradoEmChanged();
-        /// <summary>
         /// There are no comments for Property ImagemSocial in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -1183,6 +1069,28 @@ namespace Netponto.App.Common.OData.Api
         private string _ImagemSocial;
         partial void OnImagemSocialChanging(string value);
         partial void OnImagemSocialChanged();
+        /// <summary>
+        /// There are no comments for Property NomeCompleto in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        public string NomeCompleto
+        {
+            get
+            {
+                return this._NomeCompleto;
+            }
+            set
+            {
+                this.OnNomeCompletoChanging(value);
+                this._NomeCompleto = value;
+                this.OnNomeCompletoChanged();
+                this.OnPropertyChanged("NomeCompleto");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
+        private string _NomeCompleto;
+        partial void OnNomeCompletoChanging(string value);
+        partial void OnNomeCompletoChanged();
         /// <summary>
         /// There are no comments for Sessoes in the schema.
         /// </summary>
@@ -1249,7 +1157,7 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.Reuniao in the schema.
+    /// There are no comments for NetPonto.Web.Models.Reuniao in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -1262,27 +1170,13 @@ namespace Netponto.App.Common.OData.Api
         /// Create a new Reuniao object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="titulo">Initial value of Titulo.</param>
-        /// <param name="descricao">Initial value of Descricao.</param>
         /// <param name="data">Initial value of Data.</param>
-        /// <param name="slug">Initial value of Slug.</param>
-        /// <param name="mostrarNoSite">Initial value of MostrarNoSite.</param>
-        /// <param name="mostrarNoFeed">Initial value of MostrarNoFeed.</param>
-        /// <param name="criadoEm">Initial value of CriadoEm.</param>
-        /// <param name="alteradoEm">Initial value of AlteradoEm.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static Reuniao CreateReuniao(int ID, string titulo, string descricao, global::System.DateTime data, string slug, bool mostrarNoSite, bool mostrarNoFeed, global::System.DateTime criadoEm, global::System.DateTime alteradoEm)
+        public static Reuniao CreateReuniao(int ID, global::System.DateTime data)
         {
             Reuniao reuniao = new Reuniao();
             reuniao.Id = ID;
-            reuniao.Titulo = titulo;
-            reuniao.Descricao = descricao;
             reuniao.Data = data;
-            reuniao.Slug = slug;
-            reuniao.MostrarNoSite = mostrarNoSite;
-            reuniao.MostrarNoFeed = mostrarNoFeed;
-            reuniao.CriadoEm = criadoEm;
-            reuniao.AlteradoEm = alteradoEm;
             return reuniao;
         }
         /// <summary>
@@ -1440,50 +1334,6 @@ namespace Netponto.App.Common.OData.Api
         partial void OnUrlRegistoChanging(string value);
         partial void OnUrlRegistoChanged();
         /// <summary>
-        /// There are no comments for Property MostrarNoSite in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public bool MostrarNoSite
-        {
-            get
-            {
-                return this._MostrarNoSite;
-            }
-            set
-            {
-                this.OnMostrarNoSiteChanging(value);
-                this._MostrarNoSite = value;
-                this.OnMostrarNoSiteChanged();
-                this.OnPropertyChanged("MostrarNoSite");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private bool _MostrarNoSite;
-        partial void OnMostrarNoSiteChanging(bool value);
-        partial void OnMostrarNoSiteChanged();
-        /// <summary>
-        /// There are no comments for Property MostrarNoFeed in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public bool MostrarNoFeed
-        {
-            get
-            {
-                return this._MostrarNoFeed;
-            }
-            set
-            {
-                this.OnMostrarNoFeedChanging(value);
-                this._MostrarNoFeed = value;
-                this.OnMostrarNoFeedChanged();
-                this.OnPropertyChanged("MostrarNoFeed");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private bool _MostrarNoFeed;
-        partial void OnMostrarNoFeedChanging(bool value);
-        partial void OnMostrarNoFeedChanged();
-        /// <summary>
         /// There are no comments for Property LocalizacaoId in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -1505,50 +1355,6 @@ namespace Netponto.App.Common.OData.Api
         private global::System.Nullable<int> _LocalizacaoId;
         partial void OnLocalizacaoIdChanging(global::System.Nullable<int> value);
         partial void OnLocalizacaoIdChanged();
-        /// <summary>
-        /// There are no comments for Property CriadoEm in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.DateTime CriadoEm
-        {
-            get
-            {
-                return this._CriadoEm;
-            }
-            set
-            {
-                this.OnCriadoEmChanging(value);
-                this._CriadoEm = value;
-                this.OnCriadoEmChanged();
-                this.OnPropertyChanged("CriadoEm");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.DateTime _CriadoEm;
-        partial void OnCriadoEmChanging(global::System.DateTime value);
-        partial void OnCriadoEmChanged();
-        /// <summary>
-        /// There are no comments for Property AlteradoEm in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.DateTime AlteradoEm
-        {
-            get
-            {
-                return this._AlteradoEm;
-            }
-            set
-            {
-                this.OnAlteradoEmChanging(value);
-                this._AlteradoEm = value;
-                this.OnAlteradoEmChanged();
-                this.OnPropertyChanged("AlteradoEm");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.DateTime _AlteradoEm;
-        partial void OnAlteradoEmChanging(global::System.DateTime value);
-        partial void OnAlteradoEmChanged();
         /// <summary>
         /// There are no comments for Property ImagemSocial in the schema.
         /// </summary>
@@ -1637,7 +1443,7 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.Sessao in the schema.
+    /// There are no comments for NetPonto.Web.Models.Sessao in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -1650,23 +1456,15 @@ namespace Netponto.App.Common.OData.Api
         /// Create a new Sessao object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="hora">Initial value of Hora.</param>
-        /// <param name="titulo">Initial value of Titulo.</param>
         /// <param name="apresentacao">Initial value of Apresentacao.</param>
         /// <param name="reuniaoId">Initial value of ReuniaoId.</param>
-        /// <param name="criadoEm">Initial value of CriadoEm.</param>
-        /// <param name="alteradoEm">Initial value of AlteradoEm.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static Sessao CreateSessao(int ID, string hora, string titulo, bool apresentacao, int reuniaoId, global::System.DateTime criadoEm, global::System.DateTime alteradoEm)
+        public static Sessao CreateSessao(int ID, bool apresentacao, int reuniaoId)
         {
             Sessao sessao = new Sessao();
             sessao.Id = ID;
-            sessao.Hora = hora;
-            sessao.Titulo = titulo;
             sessao.Apresentacao = apresentacao;
             sessao.ReuniaoId = reuniaoId;
-            sessao.CriadoEm = criadoEm;
-            sessao.AlteradoEm = alteradoEm;
             return sessao;
         }
         /// <summary>
@@ -1934,50 +1732,6 @@ namespace Netponto.App.Common.OData.Api
         partial void OnReuniaoIdChanging(int value);
         partial void OnReuniaoIdChanged();
         /// <summary>
-        /// There are no comments for Property CriadoEm in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.DateTime CriadoEm
-        {
-            get
-            {
-                return this._CriadoEm;
-            }
-            set
-            {
-                this.OnCriadoEmChanging(value);
-                this._CriadoEm = value;
-                this.OnCriadoEmChanged();
-                this.OnPropertyChanged("CriadoEm");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.DateTime _CriadoEm;
-        partial void OnCriadoEmChanging(global::System.DateTime value);
-        partial void OnCriadoEmChanged();
-        /// <summary>
-        /// There are no comments for Property AlteradoEm in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.DateTime AlteradoEm
-        {
-            get
-            {
-                return this._AlteradoEm;
-            }
-            set
-            {
-                this.OnAlteradoEmChanging(value);
-                this._AlteradoEm = value;
-                this.OnAlteradoEmChanged();
-                this.OnPropertyChanged("AlteradoEm");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.DateTime _AlteradoEm;
-        partial void OnAlteradoEmChanging(global::System.DateTime value);
-        partial void OnAlteradoEmChanged();
-        /// <summary>
         /// There are no comments for Property ImagemSocial in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
@@ -2065,7 +1819,7 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.NivelPatrocinador in the schema.
+    /// There are no comments for NetPonto.Web.Models.NivelPatrocinador in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -2078,13 +1832,11 @@ namespace Netponto.App.Common.OData.Api
         /// Create a new NivelPatrocinador object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="nome">Initial value of Nome.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static NivelPatrocinador CreateNivelPatrocinador(int ID, string nome)
+        public static NivelPatrocinador CreateNivelPatrocinador(int ID)
         {
             NivelPatrocinador nivelPatrocinador = new NivelPatrocinador();
             nivelPatrocinador.Id = ID;
-            nivelPatrocinador.Nome = nome;
             return nivelPatrocinador;
         }
         /// <summary>
@@ -2161,7 +1913,7 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.Patrocinador in the schema.
+    /// There are no comments for NetPonto.Web.Models.Patrocinador in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -2343,15 +2095,15 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.ReuniaoPatrocinador in the schema.
+    /// There are no comments for NetPonto.Web.Models.ReuniaoPatrocinador in the schema.
     /// </summary>
     /// <KeyProperties>
-    /// ReuniaoId
-    /// PatrocinadorId
     /// NivelId
+    /// PatrocinadorId
+    /// ReuniaoId
     /// </KeyProperties>
     [global::System.Data.Services.Common.EntitySetAttribute("ReunioesPatrocinadores")]
-    [global::System.Data.Services.Common.DataServiceKeyAttribute("ReuniaoId", "PatrocinadorId", "NivelId")]
+    [global::System.Data.Services.Common.DataServiceKeyAttribute("NivelId", "PatrocinadorId", "ReuniaoId")]
     public partial class ReuniaoPatrocinador : global::System.ComponentModel.INotifyPropertyChanged
     {
         /// <summary>
@@ -2501,7 +2253,7 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.RevistaProgramarEdicao in the schema.
+    /// There are no comments for NetPonto.Web.Models.RevistaProgramarEdicao in the schema.
     /// </summary>
     /// <KeyProperties>
     /// NumeroEdicao
@@ -2516,23 +2268,13 @@ namespace Netponto.App.Common.OData.Api
         /// <param name="numeroEdicao">Initial value of NumeroEdicao.</param>
         /// <param name="mes">Initial value of Mes.</param>
         /// <param name="ano">Initial value of Ano.</param>
-        /// <param name="titulo">Initial value of Titulo.</param>
-        /// <param name="urlCapaMedia">Initial value of UrlCapaMedia.</param>
-        /// <param name="urlCapaGrande">Initial value of UrlCapaGrande.</param>
-        /// <param name="urlDownload">Initial value of UrlDownload.</param>
-        /// <param name="slug">Initial value of Slug.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static RevistaProgramarEdicao CreateRevistaProgramarEdicao(int numeroEdicao, int mes, int ano, string titulo, string urlCapaMedia, string urlCapaGrande, string urlDownload, string slug)
+        public static RevistaProgramarEdicao CreateRevistaProgramarEdicao(int numeroEdicao, int mes, int ano)
         {
             RevistaProgramarEdicao revistaProgramarEdicao = new RevistaProgramarEdicao();
             revistaProgramarEdicao.NumeroEdicao = numeroEdicao;
             revistaProgramarEdicao.Mes = mes;
             revistaProgramarEdicao.Ano = ano;
-            revistaProgramarEdicao.Titulo = titulo;
-            revistaProgramarEdicao.UrlCapaMedia = urlCapaMedia;
-            revistaProgramarEdicao.UrlCapaGrande = urlCapaGrande;
-            revistaProgramarEdicao.UrlDownload = urlDownload;
-            revistaProgramarEdicao.Slug = slug;
             return revistaProgramarEdicao;
         }
         /// <summary>
@@ -2759,7 +2501,7 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.RevistaProgramarArtigo in the schema.
+    /// There are no comments for NetPonto.Web.Models.RevistaProgramarArtigo in the schema.
     /// </summary>
     /// <KeyProperties>
     /// NumeroArtigo
@@ -2773,21 +2515,13 @@ namespace Netponto.App.Common.OData.Api
         /// </summary>
         /// <param name="numeroArtigo">Initial value of NumeroArtigo.</param>
         /// <param name="numeroEdicao">Initial value of NumeroEdicao.</param>
-        /// <param name="coluna">Initial value of Coluna.</param>
-        /// <param name="titulo">Initial value of Titulo.</param>
-        /// <param name="urlArtigo">Initial value of UrlArtigo.</param>
-        /// <param name="slug">Initial value of Slug.</param>
         /// <param name="ordem">Initial value of Ordem.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static RevistaProgramarArtigo CreateRevistaProgramarArtigo(int numeroArtigo, int numeroEdicao, string coluna, string titulo, string urlArtigo, string slug, int ordem)
+        public static RevistaProgramarArtigo CreateRevistaProgramarArtigo(int numeroArtigo, int numeroEdicao, int ordem)
         {
             RevistaProgramarArtigo revistaProgramarArtigo = new RevistaProgramarArtigo();
             revistaProgramarArtigo.NumeroArtigo = numeroArtigo;
             revistaProgramarArtigo.NumeroEdicao = numeroEdicao;
-            revistaProgramarArtigo.Coluna = coluna;
-            revistaProgramarArtigo.Titulo = titulo;
-            revistaProgramarArtigo.UrlArtigo = urlArtigo;
-            revistaProgramarArtigo.Slug = slug;
             revistaProgramarArtigo.Ordem = ordem;
             return revistaProgramarArtigo;
         }
@@ -3015,7 +2749,7 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.RevistaProgramarMembro in the schema.
+    /// There are no comments for NetPonto.Web.Models.RevistaProgramarMembro in the schema.
     /// </summary>
     /// <KeyProperties>
     /// NumeroMembro
@@ -3028,15 +2762,11 @@ namespace Netponto.App.Common.OData.Api
         /// Create a new RevistaProgramarMembro object.
         /// </summary>
         /// <param name="numeroMembro">Initial value of NumeroMembro.</param>
-        /// <param name="nome">Initial value of Nome.</param>
-        /// <param name="urlPerfil">Initial value of UrlPerfil.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static RevistaProgramarMembro CreateRevistaProgramarMembro(int numeroMembro, string nome, string urlPerfil)
+        public static RevistaProgramarMembro CreateRevistaProgramarMembro(int numeroMembro)
         {
             RevistaProgramarMembro revistaProgramarMembro = new RevistaProgramarMembro();
             revistaProgramarMembro.NumeroMembro = numeroMembro;
-            revistaProgramarMembro.Nome = nome;
-            revistaProgramarMembro.UrlPerfil = urlPerfil;
             return revistaProgramarMembro;
         }
         /// <summary>
@@ -3193,7 +2923,7 @@ namespace Netponto.App.Common.OData.Api
         }
     }
     /// <summary>
-    /// There are no comments for NetPontoEFModel.Evento in the schema.
+    /// There are no comments for NetPonto.Web.Models.Evento in the schema.
     /// </summary>
     /// <KeyProperties>
     /// Id
@@ -3206,29 +2936,13 @@ namespace Netponto.App.Common.OData.Api
         /// Create a new Evento object.
         /// </summary>
         /// <param name="ID">Initial value of Id.</param>
-        /// <param name="titulo">Initial value of Titulo.</param>
         /// <param name="data">Initial value of Data.</param>
-        /// <param name="cidade">Initial value of Cidade.</param>
-        /// <param name="descricao">Initial value of Descricao.</param>
-        /// <param name="slug">Initial value of Slug.</param>
-        /// <param name="mostrarNoSite">Initial value of MostrarNoSite.</param>
-        /// <param name="mostrarNoFeed">Initial value of MostrarNoFeed.</param>
-        /// <param name="criadoEm">Initial value of CriadoEm.</param>
-        /// <param name="alteradoEm">Initial value of AlteradoEm.</param>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public static Evento CreateEvento(int ID, string titulo, global::System.DateTime data, string cidade, string descricao, string slug, bool mostrarNoSite, bool mostrarNoFeed, global::System.DateTime criadoEm, global::System.DateTime alteradoEm)
+        public static Evento CreateEvento(int ID, global::System.DateTime data)
         {
             Evento evento = new Evento();
             evento.Id = ID;
-            evento.Titulo = titulo;
             evento.Data = data;
-            evento.Cidade = cidade;
-            evento.Descricao = descricao;
-            evento.Slug = slug;
-            evento.MostrarNoSite = mostrarNoSite;
-            evento.MostrarNoFeed = mostrarNoFeed;
-            evento.CriadoEm = criadoEm;
-            evento.AlteradoEm = alteradoEm;
             return evento;
         }
         /// <summary>
@@ -3407,94 +3121,6 @@ namespace Netponto.App.Common.OData.Api
         private string _UrlRegisto;
         partial void OnUrlRegistoChanging(string value);
         partial void OnUrlRegistoChanged();
-        /// <summary>
-        /// There are no comments for Property MostrarNoSite in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public bool MostrarNoSite
-        {
-            get
-            {
-                return this._MostrarNoSite;
-            }
-            set
-            {
-                this.OnMostrarNoSiteChanging(value);
-                this._MostrarNoSite = value;
-                this.OnMostrarNoSiteChanged();
-                this.OnPropertyChanged("MostrarNoSite");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private bool _MostrarNoSite;
-        partial void OnMostrarNoSiteChanging(bool value);
-        partial void OnMostrarNoSiteChanged();
-        /// <summary>
-        /// There are no comments for Property MostrarNoFeed in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public bool MostrarNoFeed
-        {
-            get
-            {
-                return this._MostrarNoFeed;
-            }
-            set
-            {
-                this.OnMostrarNoFeedChanging(value);
-                this._MostrarNoFeed = value;
-                this.OnMostrarNoFeedChanged();
-                this.OnPropertyChanged("MostrarNoFeed");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private bool _MostrarNoFeed;
-        partial void OnMostrarNoFeedChanging(bool value);
-        partial void OnMostrarNoFeedChanged();
-        /// <summary>
-        /// There are no comments for Property CriadoEm in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.DateTime CriadoEm
-        {
-            get
-            {
-                return this._CriadoEm;
-            }
-            set
-            {
-                this.OnCriadoEmChanging(value);
-                this._CriadoEm = value;
-                this.OnCriadoEmChanged();
-                this.OnPropertyChanged("CriadoEm");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.DateTime _CriadoEm;
-        partial void OnCriadoEmChanging(global::System.DateTime value);
-        partial void OnCriadoEmChanged();
-        /// <summary>
-        /// There are no comments for Property AlteradoEm in the schema.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        public global::System.DateTime AlteradoEm
-        {
-            get
-            {
-                return this._AlteradoEm;
-            }
-            set
-            {
-                this.OnAlteradoEmChanging(value);
-                this._AlteradoEm = value;
-                this.OnAlteradoEmChanged();
-                this.OnPropertyChanged("AlteradoEm");
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        private global::System.DateTime _AlteradoEm;
-        partial void OnAlteradoEmChanging(global::System.DateTime value);
-        partial void OnAlteradoEmChanged();
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]

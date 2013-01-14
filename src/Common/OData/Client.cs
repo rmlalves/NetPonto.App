@@ -1,8 +1,8 @@
 ﻿using System;
 
-using Netponto.App.Common.OData.Api;
+using NetPonto.App.Common.OData.Api;
 
-namespace Netponto.App.Common.OData
+namespace NetPonto.App.Common.OData
 {
     public static class NetPontoSvcFactory
     {
