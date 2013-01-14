@@ -103,6 +103,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataServiceQueryMock.cs" />
+    <Compile Include="DataServiceQueryWrapper.cs" />
+    <Compile Include="IDataServiceQuery.cs" />
     <Compile Include="NetPontoSvcFactory.cs" />
     <Compile Include="INetPontoSvc.cs" />
     <Compile Include="NetPontoDbContext.cs" />

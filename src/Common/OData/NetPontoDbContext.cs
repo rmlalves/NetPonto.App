@@ -1,64 +1,64 @@
 ﻿using System;
-using System.Linq;
+using System.Data.Services.Client;
 
 namespace NetPonto.App.Common.OData.Api
 {
     public partial class NetPontoDbContext : INetPontoSvc
     {
         #region INetPontoSvc
-        public IQueryable<Localizacao> Localizacao
+        public IDataServiceQuery<Localizacao> Localizacao
         {
-            get { return this.Localizacoes; }
+            get { return new DataServiceQueryWrapper<Localizacao>(this.Localizacoes); }
         }
 
-        public IQueryable<Membro> Membro
+        public IDataServiceQuery<Membro> Membro
         {
-            get { return this.Membros; }
+            get { return new DataServiceQueryWrapper<Membro>(this.Membros); }
         }
 
-        public IQueryable<Reuniao> Reuniao
+        public IDataServiceQuery<Reuniao> Reuniao
         {
-            get { return this.Reunioes; }
+            get { return new DataServiceQueryWrapper<Reuniao>(this.Reunioes); }
         }
 
-        public IQueryable<Sessao> Sessao
+        public IDataServiceQuery<Sessao> Sessao
         {
-            get { return this.Sessoes; }
+            get { return new DataServiceQueryWrapper<Sessao>(this.Sessoes); }
         }
 
-        public IQueryable<NivelPatrocinador> NivelPatrocinador
+        public IDataServiceQuery<NivelPatrocinador> NivelPatrocinador
         {
-            get { return this.NiveisPatrocinadores; }
+            get { return new DataServiceQueryWrapper<NivelPatrocinador>(this.NiveisPatrocinadores); }
         }
 
-        public IQueryable<Patrocinador> Patrocinador
+        public IDataServiceQuery<Patrocinador> Patrocinador
         {
-            get { return this.Patrocinadores; }
+            get { return new DataServiceQueryWrapper<Patrocinador>(this.Patrocinadores); }
         }
 
-        public IQueryable<ReuniaoPatrocinador> ReuniaoPatrocinador
+        public IDataServiceQuery<ReuniaoPatrocinador> ReuniaoPatrocinador
         {
-            get { return this.ReunioesPatrocinadores; }
+            get { return new DataServiceQueryWrapper<ReuniaoPatrocinador>(this.ReunioesPatrocinadores); }
         }
 
-        public IQueryable<RevistaProgramarEdicao> RevistaProgramarEdicao
+        public IDataServiceQuery<RevistaProgramarEdicao> RevistaProgramarEdicao
         {
-            get { return this.RevistaProgramarEdicoes; }
+            get { return new DataServiceQueryWrapper<RevistaProgramarEdicao>(this.RevistaProgramarEdicoes); }
         }
 
-        public IQueryable<RevistaProgramarArtigo> RevistaProgramarArtigo
+        public IDataServiceQuery<RevistaProgramarArtigo> RevistaProgramarArtigo
         {
-            get { return this.RevistaProgramarArtigos; }
+            get { return new DataServiceQueryWrapper<RevistaProgramarArtigo>(this.RevistaProgramarArtigos); }
         }
 
-        public IQueryable<RevistaProgramarMembro> RevistaProgramarMembro
+        public IDataServiceQuery<RevistaProgramarMembro> RevistaProgramarMembro
         {
-            get { return this.RevistaProgramarMembros; }
+            get { return new DataServiceQueryWrapper<RevistaProgramarMembro>(this.RevistaProgramarMembros); }
         }
 
-        public IQueryable<Evento> Evento
+        public IDataServiceQuery<Evento> Evento
         {
-            get { return this.Eventos; }
+            get { return new DataServiceQueryWrapper<Evento>(this.Eventos); }
         } 
         #endregion
     }

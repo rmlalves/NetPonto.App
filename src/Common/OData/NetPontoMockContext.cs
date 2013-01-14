@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Services.Client;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace NetPonto.App.Common.OData.Api
 {
@@ -141,59 +144,64 @@ namespace NetPonto.App.Common.OData.Api
 
 
         #region INetPontoSvc
-        public IQueryable<Localizacao> Localizacao
+        public IDataServiceQuery<Localizacao> Localizacao
         {
-            get { return NetPontoMockContext.Localizacoes; }
+            get
+            {
+                return new DataServiceQueryMock<Localizacao>(NetPontoMockContext.Localizacoes);
+                //return new DataServiceQueryWrapper<Localizacao>();
+                //NetPontoMockContext.Localizacoes; 
+            }
         }
 
-        public IQueryable<Membro> Membro
+        public IDataServiceQuery<Membro> Membro
         {
-            get { return NetPontoMockContext.Membros; }
+            get { return new DataServiceQueryMock<Membro>(NetPontoMockContext.Membros); }
         }
 
-        public IQueryable<Reuniao> Reuniao
+        public IDataServiceQuery<Reuniao> Reuniao
         {
-            get { return NetPontoMockContext.Reunioes; }
+            get { return new DataServiceQueryMock<Reuniao>(NetPontoMockContext.Reunioes); }
         }
 
-        public IQueryable<Sessao> Sessao
+        public IDataServiceQuery<Sessao> Sessao
         {
-            get { return NetPontoMockContext.Sessoes; }
+            get { return new DataServiceQueryMock<Sessao>(NetPontoMockContext.Sessoes); }
         }
 
-        public IQueryable<NivelPatrocinador> NivelPatrocinador
+        public IDataServiceQuery<NivelPatrocinador> NivelPatrocinador
         {
-            get { return NetPontoMockContext.NiveisPatrocinadores; }
+            get { return new DataServiceQueryMock<NivelPatrocinador>(NetPontoMockContext.NiveisPatrocinadores); }
         }
 
-        public IQueryable<Patrocinador> Patrocinador
+        public IDataServiceQuery<Patrocinador> Patrocinador
         {
-            get { return NetPontoMockContext.Patrocinadores; }
+            get { return new DataServiceQueryMock<Patrocinador>(NetPontoMockContext.Patrocinadores); }
         }
 
-        public IQueryable<ReuniaoPatrocinador> ReuniaoPatrocinador
+        public IDataServiceQuery<ReuniaoPatrocinador> ReuniaoPatrocinador
         {
-            get { return NetPontoMockContext.ReunioesPatrocinadores; }
+            get { return new DataServiceQueryMock<ReuniaoPatrocinador>(NetPontoMockContext.ReunioesPatrocinadores); }
         }
 
-        public IQueryable<RevistaProgramarEdicao> RevistaProgramarEdicao
+        public IDataServiceQuery<RevistaProgramarEdicao> RevistaProgramarEdicao
         {
-            get { return NetPontoMockContext.RevistaProgramarEdicoes; }
+            get { return new DataServiceQueryMock<RevistaProgramarEdicao>(NetPontoMockContext.RevistaProgramarEdicoes); }
         }
 
-        public IQueryable<RevistaProgramarArtigo> RevistaProgramarArtigo
+        public IDataServiceQuery<RevistaProgramarArtigo> RevistaProgramarArtigo
         {
-            get { return NetPontoMockContext.RevistaProgramarArtigos; }
+            get { return new DataServiceQueryMock<RevistaProgramarArtigo>(NetPontoMockContext.RevistaProgramarArtigos); }
         }
 
-        public IQueryable<RevistaProgramarMembro> RevistaProgramarMembro
+        public IDataServiceQuery<RevistaProgramarMembro> RevistaProgramarMembro
         {
-            get { return NetPontoMockContext.RevistaProgramarMembros; }
+            get { return new DataServiceQueryMock<RevistaProgramarMembro>(NetPontoMockContext.RevistaProgramarMembros); }
         }
 
-        public IQueryable<Evento> Evento
+        public IDataServiceQuery<Evento> Evento
         {
-            get { return NetPontoMockContext.Eventos; }
+            get { return new DataServiceQueryMock<Evento>(NetPontoMockContext.Eventos); }
         }
         #endregion
     }
