@@ -12,7 +12,7 @@ namespace NetPonto.App.Common.OData
 #if DEBUG
             return new NetPontoMockContext();
 #else
-            return new NetPontoDbContext(new Uri(@"http://netponto.org/OData/Api.svc"));
+            return new NetPontoDbContext(new Uri(@"http://localhost:9903/OData/Api.svc"));
 #endif
         } 
         #endregion
