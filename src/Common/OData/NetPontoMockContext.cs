@@ -142,16 +142,10 @@ namespace NetPonto.App.Common.OData.Api
         }.AsQueryable();
         #endregion
 
-
         #region INetPontoSvc
         public IDataServiceQuery<Localizacao> Localizacao
         {
-            get
-            {
-                return new DataServiceQueryMock<Localizacao>(NetPontoMockContext.Localizacoes);
-                //return new DataServiceQueryWrapper<Localizacao>();
-                //NetPontoMockContext.Localizacoes; 
-            }
+            get { return new DataServiceQueryMock<Localizacao>(NetPontoMockContext.Localizacoes); }
         }
 
         public IDataServiceQuery<Membro> Membro
