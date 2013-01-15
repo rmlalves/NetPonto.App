@@ -15,5 +15,7 @@ namespace NetPonto.App.Common.OData
 
         IAsyncResult BeginExecute(AsyncCallback callback, object state);
         IEnumerable<TElement> EndExecute(IAsyncResult asyncResult);
+
+        IEnumerable<TElement> Execute();
     }
 }

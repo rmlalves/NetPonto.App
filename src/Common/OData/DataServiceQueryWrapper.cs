@@ -17,34 +17,42 @@ namespace NetPonto.App.Common.OData.Api
         }
 
         #region IDataServiceQuery
-        IDataServiceQuery<TElement> IDataServiceQuery<TElement>.Expand<TTarget>(Expression<Func<TElement, TTarget>> navigationPropertyAccessor)
+        public IDataServiceQuery<TElement> Expand<TTarget>(Expression<Func<TElement, TTarget>> navigationPropertyAccessor)
         {
             return new DataServiceQueryWrapper<TElement>(_query.Expand(navigationPropertyAccessor));
         }
 
-        IDataServiceQuery<TElement> IDataServiceQuery<TElement>.Expand(string path)
+        public IDataServiceQuery<TElement> Expand(string path)
         {
             return new DataServiceQueryWrapper<TElement>(_query.Expand(path));
         }
 
-        IDataServiceQuery<TElement> IDataServiceQuery<TElement>.IncludeTotalCount()
+        public IDataServiceQuery<TElement> IncludeTotalCount()
         {
             return new DataServiceQueryWrapper<TElement>(_query.IncludeTotalCount());
         }
 
-        IDataServiceQuery<TElement> IDataServiceQuery<TElement>.AddQueryOption(string name, object value)
+        public IDataServiceQuery<TElement> AddQueryOption(string name, object value)
         {
             return new DataServiceQueryWrapper<TElement>(_query.AddQueryOption(name, value));
         }
 
-        IAsyncResult IDataServiceQuery<TElement>.BeginExecute(AsyncCallback callback, object state)
+        public IAsyncResult BeginExecute(AsyncCallback callback, object state)
         {
             return _query.BeginExecute(callback, state);
         }
 
-        IEnumerable<TElement> IDataServiceQuery<TElement>.EndExecute(IAsyncResult asyncResult)
+        public IEnumerable<TElement> EndExecute(IAsyncResult asyncResult)
         {
             return _query.EndExecute(asyncResult);
+        }
+
+        public IEnumerable<TElement> Execute()
+        {
+            var asyncResult = _query.BeginExecute((result) => { }, _query);
+            var list = _query.EndExecute(asyncResult).ToList();
+
+            return list;
         }
 
         IEnumerator<TElement> IEnumerable<TElement>.GetEnumerator()
@@ -57,17 +65,17 @@ namespace NetPonto.App.Common.OData.Api
             return _query as IEnumerator;
         }
 
-        Type IQueryable.ElementType
+        public Type ElementType
         {
             get { return _query.ElementType; }
         }
 
-        Expression IQueryable.Expression
+        public Expression Expression
         {
             get { return _query.Expression; }
         }
 
-        IQueryProvider IQueryable.Provider
+        public IQueryProvider Provider
         {
             get { return _query.Provider; }
         } 

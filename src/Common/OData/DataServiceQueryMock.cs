@@ -16,34 +16,39 @@ namespace NetPonto.App.Common.OData.Api
         }
 
         #region IDataServiceQuery
-        IDataServiceQuery<TElement> IDataServiceQuery<TElement>.Expand<TTarget>(Expression<Func<TElement, TTarget>> navigationPropertyAccessor)
+        public IDataServiceQuery<TElement> Expand<TTarget>(Expression<Func<TElement, TTarget>> navigationPropertyAccessor)
         {
             return this;
         }
 
-        IDataServiceQuery<TElement> IDataServiceQuery<TElement>.Expand(string path)
+        public IDataServiceQuery<TElement> Expand(string path)
         {
             return this;
         }
 
-        IDataServiceQuery<TElement> IDataServiceQuery<TElement>.IncludeTotalCount()
+        public IDataServiceQuery<TElement> IncludeTotalCount()
         {
             return this;
         }
 
-        IDataServiceQuery<TElement> IDataServiceQuery<TElement>.AddQueryOption(string name, object value)
+        public IDataServiceQuery<TElement> AddQueryOption(string name, object value)
         {
             return this;
         }
 
-        IAsyncResult IDataServiceQuery<TElement>.BeginExecute(AsyncCallback callback, object state)
+        public IAsyncResult BeginExecute(AsyncCallback callback, object state)
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<TElement> IDataServiceQuery<TElement>.EndExecute(IAsyncResult asyncResult)
+        public IEnumerable<TElement> EndExecute(IAsyncResult asyncResult)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<TElement> Execute()
+        {
+            return _query;
         }
 
         IEnumerator<TElement> IEnumerable<TElement>.GetEnumerator()
@@ -56,17 +61,17 @@ namespace NetPonto.App.Common.OData.Api
             return _query.GetEnumerator();
         }
 
-        Type IQueryable.ElementType
+        public Type ElementType
         {
             get { return _query.ElementType; }
         }
 
-        Expression IQueryable.Expression
+        public Expression Expression
         {
             get { return _query.Expression; }
         }
 
-        IQueryProvider IQueryable.Provider
+        public IQueryProvider Provider
         {
             get { return _query.Provider; }
         } 

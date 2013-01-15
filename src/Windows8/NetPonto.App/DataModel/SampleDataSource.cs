@@ -260,20 +260,26 @@ namespace NetPonto.App.Data
                         "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse quisque donec dis praesent accumsan bibendum pellentesque condimentum adipiscing etiam consequat vivamus dictumst aliquam duis convallis scelerisque est parturient ullamcorper aliquet fusce suspendisse nunc hac eleifend amet blandit facilisi condimentum commodo scelerisque faucibus aenean ullamcorper ante mauris dignissim consectetuer nullam lorem vestibulum habitant conubia elementum pellentesque morbi facilisis arcu sollicitudin diam cubilia aptent vestibulum auctor eget dapibus pellentesque inceptos leo egestas interdum nulla consectetuer suspendisse adipiscing pellentesque proin lobortis sollicitudin augue elit mus congue fermentum parturient fringilla euismod feugiat");
 
             var svc = NetPonto.App.Common.OData.NetPontoSvcFactory.CreateSvc();
-            var reunioesByCidade = svc.Reuniao
-                .Join(svc.Localizacao, r => r.LocalizacaoId, l => l.Id, (r, l) => new { Cidade = l.Cidade, Reuniao = r })
-                .GroupBy(k => k.Cidade, e => e.Reuniao);
+            var localizacoesList = svc.Localizacao.Execute().ToList();
+            var reunioesList = svc.Reuniao.Execute().ToList();
 
-            foreach (var reunioes in reunioesByCidade)
+            foreach (var localizacao in localizacoesList)
             {
-                var group = new SampleDataGroup(
-                    "Group-NetPonto-" + reunioes.Key,
-                    "Group Title: " + reunioes.Key,
-                    "Group Subtitle: NetPonto",
-                    "Assets/DarkGray.png",
-                    "Group Description: NetPonto"
-                );
-                foreach (var item in reunioes)
+                var groupId = "Group-NetPonto-" + localizacao.Cidade;
+                var group = this.AllGroups.FirstOrDefault(x => x.UniqueId == groupId);
+                if (group == null)
+                {
+                    group = new SampleDataGroup(
+                        "Group-NetPonto-" + localizacao.Cidade,
+                        "Group Title: " + localizacao.Cidade,
+                        "Group Subtitle: NetPonto",
+                        "Assets/DarkGray.png",
+                        "Group Description: NetPonto"
+                    );
+                    this.AllGroups.Add(group);
+                }
+
+                foreach (var item in reunioesList.Where(x => x.LocalizacaoId == localizacao.Id))
                 {
                     group.Items.Add(new SampleDataItem(
                         "Group-NetPonto-Item-" + item.Slug,
@@ -285,8 +291,46 @@ namespace NetPonto.App.Data
                         group
                     ));
                 }
-                this.AllGroups.Add(group);
             }
+        }
+
+        private void OnLocalizacoesQueryComplete(IAsyncResult result)
+        {
+            //String ITEM_CONTENT = String.Format("Item Content: {0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}",
+            //            "Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse quisque donec dis praesent accumsan bibendum pellentesque condimentum adipiscing etiam consequat vivamus dictumst aliquam duis convallis scelerisque est parturient ullamcorper aliquet fusce suspendisse nunc hac eleifend amet blandit facilisi condimentum commodo scelerisque faucibus aenean ullamcorper ante mauris dignissim consectetuer nullam lorem vestibulum habitant conubia elementum pellentesque morbi facilisis arcu sollicitudin diam cubilia aptent vestibulum auctor eget dapibus pellentesque inceptos leo egestas interdum nulla consectetuer suspendisse adipiscing pellentesque proin lobortis sollicitudin augue elit mus congue fermentum parturient fringilla euismod feugiat");
+
+            //var localizacoesQuery = result.AsyncState as NetPonto.App.Common.OData.IDataServiceQuery<NetPonto.App.Common.OData.Api.Localizacao>;
+            //var localizacoesList = localizacoesQuery.EndExecute(result).ToList();
+            
+            //foreach (var localizacao in localizacoesList)
+            //{
+            //    var groupId = "Group-NetPonto-" + localizacao.Cidade;
+            //    var group = this.AllGroups.FirstOrDefault(x => x.UniqueId == groupId);
+            //    if (group == null)
+            //    {
+            //        group = new SampleDataGroup(
+            //            "Group-NetPonto-" + localizacao.Cidade,
+            //            "Group Title: " + localizacao.Cidade,
+            //            "Group Subtitle: NetPonto",
+            //            "Assets/DarkGray.png",
+            //            "Group Description: NetPonto"
+            //        );
+            //        this.AllGroups.Add(group);
+            //    }
+
+            //    //foreach (var item in localizacao.Reunioes)
+            //    //{
+            //    //    group.Items.Add(new SampleDataItem(
+            //    //        "Group-NetPonto-Item-" + item.Slug,
+            //    //        "Item Title: " + item.Titulo,
+            //    //        "Item Subtitle: " + item.Data.ToString(),
+            //    //        "Assets/LightGray.png",
+            //    //        "Item Description: " + item.Descricao,
+            //    //        ITEM_CONTENT,
+            //    //        group
+            //    //    ));
+            //    //}
+            //}
         }
     }
 }
